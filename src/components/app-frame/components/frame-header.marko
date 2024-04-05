@@ -1,0 +1,19 @@
+class {
+    onMount() {
+        const headerMessage = this.getEl('header-message');
+        headerMessage.innerHTML = 'Behavior Attached (click me)';
+    }
+    click() {
+        const headerEl = this.getEl('header');
+        const headerMessage = this.getEl('header-message');
+        headerEl.style.backgroundColor = '#2c3e50';
+        headerMessage.innerHTML = 'Clicked!';
+    }
+}
+
+<header key="header" once-click('click')>
+    <h2>${input.name}</h2>
+    <span key="header-message">
+        &nbsp;
+    </span>
+</header>
