@@ -1,0 +1,42 @@
+import favicon from "./favicon.png";
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta
+      itemprop="description"
+      name="Description"
+      content="Progressive Rendering using Marko"
+    >
+    <meta
+      name="description"
+      content="An example progressive rendering application showcasing Webpack & Marko."
+    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href=favicon>
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700"
+      media="all"
+      rel="stylesheet"
+    >
+    <${input.head}/>
+  </head>
+  <body>
+    <if(input.showHeader)>
+      <app-header/>
+    </if>
+    <if(input.showSections)>
+      <app-sections renderMode=input.renderMode/>
+    </if>
+    <div class="container">
+      <if(input.showHeader && input.showSections)>
+        <main id="main">
+          <${input.body}/>
+        </main>
+      </if>
+      <else>
+        <${input.body}/>
+      </else>
+    </div>
+  </body>
+</html>
