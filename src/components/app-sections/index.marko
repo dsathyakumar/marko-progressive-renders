@@ -1,0 +1,38 @@
+<section class="options">
+    <h2>Options</h2>
+    <macro|{ type, desc }| name="render-mode">
+        <if(input.renderMode === type)>
+            <span>
+                <b>${desc}</b>
+                ←
+            </span>
+        </if>
+        <else>
+            <span>
+                <a href=`/?renderMode=${type}`>
+                    ${desc}
+                </a>
+            </span>
+        </else>
+    </macro>
+    <fieldset>
+        <legend>Page Render Mode</legend>
+        <ul>
+            <li>
+                <render-mode type="single-chunk" desc="Single Chunk"/>
+            </li>
+            <li>
+                <render-mode
+                    type="progressive-in-order"
+                    desc="Progressive (in-order)"
+                />
+            </li>
+            <li>
+                <render-mode
+                    type="progressive-out-of-order"
+                    desc="Progressive (out-of-order)"
+                />
+            </li>
+        </ul>
+    </fieldset>
+</section>
