@@ -1,0 +1,22 @@
+<div>
+  <subscribe to=window on-load("refreshPage")/>
+  <h2 key="loading" class="loading">
+    <span key="loadingMessage">
+      Page loading...
+    </span>
+    <button type="button" key="refreshButton" on-click("refreshPage")>
+      ↺ Refresh
+    </button>
+    <button type="button" key="newWindowButton" on-click("newWindowClick")>
+      ↗ Open in New Window
+    </button>
+  </h2>
+  <div class="iframe-container">
+    <iframe
+      title="results-frame"
+      src=state.iframeUrl
+      key="iframe"
+      on-load("handleOnload")
+    />
+  </div>
+</div>
