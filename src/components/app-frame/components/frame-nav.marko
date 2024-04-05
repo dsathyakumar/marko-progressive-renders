@@ -1,0 +1,19 @@
+class {
+    onMount() {
+        const navMessage = this.getEl('nav-message');
+        navMessage.innerHTML = 'Behavior Attached (click me)';
+    }
+    click() {
+        const navEl = this.getEl('nav');
+        const navMessage = this.getEl('nav-message');
+        navEl.style.backgroundColor = '#2c3e50';
+        navMessage.innerHTML = 'Clicked!';
+    }
+}
+
+<nav key="nav" once-click('click')>
+    <h2>${input.name}</h2>
+    <span key="nav-message">
+        &nbsp;
+    </span>
+</nav>

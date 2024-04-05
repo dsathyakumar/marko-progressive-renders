@@ -1,0 +1,18 @@
+class {
+    onMount() {
+        const footerMessage = this.getEl('footer-message');
+        footerMessage.innerHTML = 'Behavior Attached (click me)';
+    }
+    click() {
+        const footerEl = this.getEl('footer');
+        const footerMessage = this.getEl('footer-message');
+        footerEl.style.backgroundColor = '#2c3e50';
+        footerMessage.innerHTML = 'Clicked!';
+    }
+}
+<footer key='footer' once-click('click')>
+    <h2>${input.name}</h2>
+    <span key="footer-message">
+        &nbsp;
+    </span>
+</footer>
