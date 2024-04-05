@@ -1,6 +1,6 @@
 {
-  "name": "progressive-rendering-app",
-  "description": "Sample app that demonstrates the power of building UI components using Marko and Webpack",
+  "name": "marko-progressive-renders",
+  "description": "Sample app that demonstrates the power of Progressive Rendering using Marko and Webpack",
   "version": "1.0.0",
   "dependencies": {
     "@marko-tags/subscribe": "^0.5.1",
