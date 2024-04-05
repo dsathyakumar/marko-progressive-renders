@@ -1,0 +1,25 @@
+<app-layout
+    renderMode=input.renderMode
+    showHeader=false
+    showSections=false
+>
+    <@head>
+        <title>Progressive Rendering Page using Marko</title>
+        <script>
+            function clearPage() {
+                document.body.innerHTML =
+                    "Reloading page... Waiting for server...";
+            }
+        </script>
+    </@head>
+    <@body>
+        <app-frame
+            headerDataProvider=input.headerDataProvider
+            navDataProvider=input.navDataProvider
+            footerDataProvider=input.footerDataProvider
+            mainDataProvider=input.mainDataProvider
+            renderMode=input.renderMode
+            reorderEnabled=input.reorderEnabled
+        />
+    </@body>
+</app-layout>
