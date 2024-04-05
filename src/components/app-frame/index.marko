@@ -1,0 +1,74 @@
+<div>
+    <h1>Inner Frame Demo Page</h1>
+    <p>Top text</p>
+
+    <!-- Header section -->
+    <await(input.headerDataProvider)
+        name="header"
+        client-reorder=input.reorderEnabled
+    >
+        <@placeholder>
+            Loading "header"...
+        </@placeholder>
+        <@then|data|>
+            $ console.log('headerDataProvider resolved', data.sectionName)
+            <if(data.sectionName)>
+                <frame-header name=data.sectionName/>
+            </if>
+        </@then>
+    </await>
+
+    <!-- Nav section -->
+    <await(input.navDataProvider)
+        name="nav"
+        client-reorder=input.reorderEnabled
+        show-after="header"
+    >
+        <@placeholder>
+            Loading "nav"...
+        </@placeholder>
+        <@catch>A error occurred!</@catch>
+        <@then|data|>
+            $ console.log('navDataProvider resolved', data.sectionName)
+            <if(data.sectionName)>
+                <frame-nav name=data.sectionName/>
+            </if>
+        </@then>
+    </await>
+
+    <!-- Main section -->
+    <await(input.mainDataProvider)
+        timeout=20000
+        name="main"
+        client-reorder=input.reorderEnabled
+    >
+        <@placeholder>
+            Loading "main"...
+        </@placeholder>
+        <@catch>A error occurred!</@catch>
+        <@then|data|>
+            $ console.log('mainDataProvider resolved', data.sectionName)
+            <if(data.sectionName)>
+                <frame-main name=data.sectionName/>
+            </if>
+        </@then>
+    </await>
+    
+    <!-- Footer section -->
+    <await(input.footerDataProvider)
+        name="footer"
+        client-reorder=input.reorderEnabled
+    >
+        <@placeholder>
+            Loading "nav"...
+        </@placeholder>
+        <@catch>A error occurred!</@catch>
+        <@then|data|>
+            $ console.log('footerDataProvider resolved', data.sectionName)
+            <if(data.sectionName)>
+                <frame-footer name=data.sectionName/>
+            </if>
+        </@then>
+    </await>
+    <p>Bottom text</p>
+</div>
